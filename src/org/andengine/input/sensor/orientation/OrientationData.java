@@ -43,15 +43,15 @@ public class OrientationData extends BaseSensorData {
 	// ===========================================================
 
 	public float getRoll() {
-		return super.mValues[SensorManager.DATA_Z];
+		return super.mValues[DATA_Z];
 	}
 
 	public float getPitch() {
-		return super.mValues[SensorManager.DATA_Y];
+		return super.mValues[DATA_Y];
 	}
 
 	public float getYaw() {
-		return super.mValues[SensorManager.DATA_X];
+		return super.mValues[DATA_X];
 	}
 
 	@Override

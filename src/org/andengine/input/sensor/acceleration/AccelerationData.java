@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 import org.andengine.input.sensor.BaseSensorData;
 
-import android.hardware.SensorManager;
 import android.view.Surface;
 
 /**
@@ -25,40 +24,40 @@ public class AccelerationData extends BaseSensorData {
 		AXISSWAPS[Surface.ROTATION_0] = new IAxisSwap() {
 			@Override
 			public void swapAxis(final float[] pValues) {
-				final float x = -pValues[SensorManager.DATA_X];
-				final float y = -pValues[SensorManager.DATA_Y];
-				pValues[SensorManager.DATA_X] = x;
-				pValues[SensorManager.DATA_Y] = y;
+				final float x = -pValues[DATA_X];
+				final float y = -pValues[DATA_Y];
+				pValues[DATA_X] = x;
+				pValues[DATA_Y] = y;
 			}
 		};
 
 		AXISSWAPS[Surface.ROTATION_90] = new IAxisSwap() {
 			@Override
 			public void swapAxis(final float[] pValues) {
-				final float x = pValues[SensorManager.DATA_Y];
-				final float y = -pValues[SensorManager.DATA_X];
-				pValues[SensorManager.DATA_X] = x;
-				pValues[SensorManager.DATA_Y] = y;
+				final float x = pValues[DATA_Y];
+				final float y = -pValues[DATA_X];
+				pValues[DATA_X] = x;
+				pValues[DATA_Y] = y;
 			}
 		};
 
 		AXISSWAPS[Surface.ROTATION_180] = new IAxisSwap() {
 			@Override
 			public void swapAxis(final float[] pValues) {
-				final float x = pValues[SensorManager.DATA_X];
-				final float y = pValues[SensorManager.DATA_Y];
-				pValues[SensorManager.DATA_X] = x;
-				pValues[SensorManager.DATA_Y] = y;
+				final float x = pValues[DATA_X];
+				final float y = pValues[DATA_Y];
+				pValues[DATA_X] = x;
+				pValues[DATA_Y] = y;
 			}
 		};
 
 		AXISSWAPS[Surface.ROTATION_270] = new IAxisSwap() {
 			@Override
 			public void swapAxis(final float[] pValues) {
-				final float x = -pValues[SensorManager.DATA_Y];
-				final float y = pValues[SensorManager.DATA_X];
-				pValues[SensorManager.DATA_X] = x;
-				pValues[SensorManager.DATA_Y] = y;
+				final float x = -pValues[DATA_Y];
+				final float y = pValues[DATA_X];
+				pValues[DATA_X] = x;
+				pValues[DATA_Y] = y;
 			}
 		};
 	}
@@ -80,27 +79,27 @@ public class AccelerationData extends BaseSensorData {
 	// ===========================================================
 
 	public float getX() {
-		return this.mValues[SensorManager.DATA_X];
+		return this.mValues[DATA_X];
 	}
 
 	public float getY() {
-		return this.mValues[SensorManager.DATA_Y];
+		return this.mValues[DATA_Y];
 	}
 
 	public float getZ() {
-		return this.mValues[SensorManager.DATA_Z];
+		return this.mValues[DATA_Z];
 	}
 
 	public void setX(final float pX) {
-		this.mValues[SensorManager.DATA_X] = pX;
+		this.mValues[DATA_X] = pX;
 	}
 
 	public void setY(final float pY) {
-		this.mValues[SensorManager.DATA_Y] = pY;
+		this.mValues[DATA_Y] = pY;
 	}
 
 	public void setZ(final float pZ) {
-		this.mValues[SensorManager.DATA_Z] = pZ;
+		this.mValues[DATA_Z] = pZ;
 	}
 
 	@Override

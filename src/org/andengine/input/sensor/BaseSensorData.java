@@ -22,6 +22,10 @@ public class BaseSensorData {
 	protected int mAccuracy;
 	protected int mDisplayRotation;
 
+	protected final static int DATA_X = 0;
+	protected final static int DATA_Y = 1;
+	protected final static int DATA_Z = 2;
+	
 	// ===========================================================
 	// Constructors
 	// ===========================================================
