@@ -1,5 +1,6 @@
 package org.andengine.entity.particle;
 
+import android.annotation.SuppressLint;
 import java.util.ArrayList;
 
 import org.andengine.engine.camera.Camera;
@@ -11,7 +12,6 @@ import org.andengine.entity.particle.initializer.IParticleInitializer;
 import org.andengine.entity.particle.modifier.IParticleModifier;
 import org.andengine.opengl.util.GLState;
 import org.andengine.util.Constants;
-import org.andengine.util.adt.array.ArrayUtils;
 import org.andengine.util.math.MathUtils;
 
 /**
@@ -103,6 +103,7 @@ public class ParticleSystem<T extends IEntity> extends Entity {
 		this.mParticlesAlive = 0;
 	}
 
+	@SuppressLint("WrongCall")
 	@Override
 	protected void onManagedDraw(final GLState pGLState, final Camera pCamera) {
 		for (int i = this.mParticlesAlive - 1; i >= 0; i--) {

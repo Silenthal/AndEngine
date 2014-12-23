@@ -113,8 +113,7 @@ public abstract class QuadTree<B extends IBounds, T extends ISpatialItem<B>> imp
 	public synchronized boolean isEmpty() {
 		return this.getItemCount() == 0;
 	}
-
-	@SuppressWarnings("deprecation")
+	
 	public synchronized void add(final T pItem) {
 		this.add(pItem, pItem.getBounds());
 	}
