@@ -39,7 +39,10 @@ public final class SystemUtils {
 	public static final boolean SDK_VERSION_GINGERBREAD_OR_LATER = Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD;
 	public static final boolean SDK_VERSION_HONEYCOMB_OR_LATER = Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB;
 	public static final boolean SDK_VERSION_ICE_CREAM_SANDWICH_OR_LATER = Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH;
-
+	public static final boolean SDK_VERSION_JELLYBEAN_OR_LATER = Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN;
+	public static final boolean SDK_VERSION_KITKAT_OR_LATER = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
+	public static final boolean SDL_VERSION_LOLLIPOP_OR_LATER = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
+	
 	private static final String BOGOMIPS_PATTERN = "BogoMIPS[\\s]*:[\\s]*(\\d+\\.\\d+)[\\s]*\n";
 	private static final String MEMTOTAL_PATTERN = "MemTotal[\\s]*:[\\s]*(\\d+)[\\s]*kB\n";
 	private static final String MEMFREE_PATTERN = "MemFree[\\s]*:[\\s]*(\\d+)[\\s]*kB\n";
@@ -445,8 +448,11 @@ public final class SystemUtils {
 
 			final boolean matchFound = scanner.findWithinHorizon(pPattern, pHorizon) != null;
 			if (matchFound) {
-				return scanner.match();
+				MatchResult matchResult = scanner.match();
+				scanner.close();
+				return matchResult;
 			} else {
+				scanner.close();
 				throw new SystemUtilsException();
 			}
 		} catch (final IOException e) {
